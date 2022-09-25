@@ -1,9 +1,6 @@
-#1 - 2 Etiquetas (Escribe el título de una película y Películas)
-#2 - Un lineEdit donde se escribirá el nombre de la película
-#3 - Un listWidget que registra las películas añadidas
-#4 - Un botón "Añadir"
 
-from tkinter import * 
+from tkinter import *
+from tkinter import messagebox 
 
 mainWindow = Tk()
 mainWindow.title("Peliculas")
@@ -15,6 +12,12 @@ var= StringVar(mainWindow,value=None)
 def añadirPelicula():
     pelicula= txt_inputPelicula.get()
     lbx_peliculas.insert(END,pelicula)
+    if (pelicula.isspace() or len(pelicula) <= 1):
+        messagebox.showinfo(message="El nombre de la película no debe comenzar con un espacio", title="Error")
+    else:
+        lbx_peliculas.insert(END,pelicula)
+        txt_inputPelicula.delete(0,END)
+
 
 lbl_pelicula= Label(mainWindow, text= "Titulo de la Pelicula",bg="#258C99",fg="white",relief="solid", bd="2")
 lbl_pelicula.grid(row=0 ,column=0,padx=10,pady=10,ipadx=10,ipady=10)
