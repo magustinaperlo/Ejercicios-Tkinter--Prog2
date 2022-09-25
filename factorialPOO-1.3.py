@@ -5,6 +5,9 @@ class Factorial():
         self.mainWindow = Tk()
         self.mainWindow.title("Factorial")
         self.mainWindow.geometry("500x80")
+        #fijamos los valores para que el usuario no extienda ni achique demasiado la ventana.
+        self.mainWindow.minsize(500, 80) 
+        self.mainWindow.maxsize(500, 80)
         self.mainWindow.config(bg="#DBBDBD")
         self.miFrame = Frame(self.mainWindow) #aqui creo y pruebo el frame ... como es
         self.miFrame.config(bg="#DBBDBD")
